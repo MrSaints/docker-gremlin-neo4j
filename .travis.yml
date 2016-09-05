@@ -1,0 +1,15 @@
+language: generic
+
+sudo: required
+
+services:
+  - docker
+
+script:
+  - bin/build-gremlin-console-neo4j.sh
+  - bin/build-gremlin-server-neo4j.sh
+
+after_success:
+  - if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "master" -o -n "$TRAVIS_TAG" ]; then exit 0; fi
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - bin/push-images.sh

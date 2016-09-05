@@ -1,8 +1,11 @@
 # docker-gremlin-neo4j
 
+[![Build Status](https://travis-ci.org/MrSaints/docker-gremlin-neo4j.svg?branch=master)](https://travis-ci.org/MrSaints/docker-gremlin-neo4j)
+
+
 _A work in progress. Use at your own discretion._
 
-An unofficial set of lightweight Docker, and Docker Compose files for working with Apache TinkerPop™ Gremlin Console, Gremlin Server, and Neo4j.
+An unofficial set of lightweight [Docker][docker], and [Docker Compose][docker-compose] files for working with [Apache TinkerPop™][tinkerpop] Gremlin Console, Gremlin Server, and [Neo4j][neo4j].
 
 `org.apache.tinkerpop neo4j-gremlin` is installed out-of-the-box for both the console, and the server image (currently version `3.2.1`).
 
@@ -14,26 +17,35 @@ By default, most Gremlin Server configuration files will set the host binding to
 
 ## TODO
 
+- [ ] Clean up `docker-compose.yml`
 - [ ] Improve configuration
 - [ ] Make the Gremlin Server image useful
+- [ ] Tag images
+
+
+## Install
+
+You can skip this step if you are working with Docker Compose.
+
+    docker pull mrsaints/gremlin-console-neo4j
+    docker pull mrsaints/gremlin-server-neo4j
 
 
 ## Usage
 
 **Gremlin Console with Neo4j standalone:**
 
-```bash
-docker-compose run --rm --service-ports gremlin-console-with-neo4j
-```
+    docker-compose run --rm --service-ports gremlin-console-with-neo4j
 
 **Neo4j only:**
 
-```bash
-docker-compose run --rm --service-ports neo4j-server
-```
+    docker-compose run --rm --service-ports neo4j-server
 
 
 ## Development
+
+The Docker images are automatically built, and pushed to [Docker Hub][docker-hub] via [Travis CI][travis-ci].
+See [.travis.yml](.travis.yml) for more information.
 
 **Build Docker images:**
 
@@ -61,3 +73,11 @@ The following command assumes that the `/data/` directory already contains Neo4j
     Neo4jGraph.open("/data/")
 
 DO NOT link it to `/data/databases/graph.db` as it is not a valid path.
+
+
+[docker-compose]: https://docs.docker.com/compose/
+[docker-hub]: https://hub.docker.com/
+[docker]: https://www.docker.com/
+[neo4j]: https://neo4j.com/
+[tinkerpop]: https://tinkerpop.apache.org/
+[travis-ci]: https://travis-ci.org/
