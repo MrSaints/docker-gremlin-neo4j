@@ -19,10 +19,6 @@
 
 host: 0.0.0.0
 port: 8182
-graphs: {
-  graph: conf/tinkergraph-empty.properties}
 plugins:
   - tinkerpop.neo4j
   - tinkerpop.tinkergraph
-metrics: {
-  slf4jReporter: {enabled: true, interval: 180000}}

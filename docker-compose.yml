@@ -6,21 +6,14 @@ services:
     #   context: ./gremlin-console-neo4j
     #   dockerfile: Dockerfile
     volumes:
-      - ./gremlin-console-neo4j/conf/remote-docker-compose.yml:/gremlin-console/conf/remote-docker-compose.yml
       - ./data/:/data/
+      - ./gremlin-console-neo4j/conf/remote-docker-compose.yml:/gremlin-console/conf/remote-docker-compose.yml
 
-  gremlin-console-all:
+  gremlin-console-with-server:
     extends:
       service: gremlin-console
     links:
       - gremlin-server
-      - neo4j-server
-
-  gremlin-console-with-neo4j:
-    extends:
-      service: gremlin-console
-    links:
-      - neo4j-server
 
   gremlin-server:
     image: mrsaints/gremlin-server-neo4j
@@ -30,11 +23,11 @@ services:
     ports:
       - "8182:8182"
     volumes:
-      - ./gremlin-server-neo4j/conf/gremlin-server-custom.yml:/gremlin-server/conf/gremlin-server-custom.yml
       - ./data/:/data/
+      - ./gremlin-server-neo4j/conf/gremlin-server-custom.yml:/gremlin-server/conf/gremlin-server-custom.yml
 
   neo4j-server:
-    image: neo4j:3.0
+    image: neo4j:2.3
     environment:
       - NEO4J_AUTH=neo4j/pass
     ports:
