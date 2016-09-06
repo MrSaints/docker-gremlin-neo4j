@@ -3,6 +3,12 @@ MAINTAINER Ian Lai <os@fyianlai.com>
 
 ARG GREMLIN_VERSION=3.2.1
 
+ARG BUILD_DATE
+ARG VCS_REF
+LABEL org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.vcs-url="https://github.com/MrSaints/docker-gremlin-neo4j"
+
 RUN apk add --update bash && rm -rf /var/cache/apk/* && \
     wget -O /tmp/gremlin-server.zip http://mirror.catn.com/pub/apache/tinkerpop/$GREMLIN_VERSION/apache-gremlin-server-$GREMLIN_VERSION-bin.zip && \
     unzip /tmp/gremlin-server.zip -d / && \
