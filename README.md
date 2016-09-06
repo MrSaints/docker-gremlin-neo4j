@@ -1,6 +1,9 @@
 # docker-gremlin-neo4j
 
-[![Build Status](https://travis-ci.org/MrSaints/docker-gremlin-neo4j.svg?branch=master)](https://travis-ci.org/MrSaints/docker-gremlin-neo4j)
+| [![Build Status](https://travis-ci.org/MrSaints/docker-gremlin-neo4j.svg?branch=master)](https://travis-ci.org/MrSaints/docker-gremlin-neo4j) | |
+| --- | --- |
+| [![](https://images.microbadger.com/badges/image/mrsaints/gremlin-console-neo4j.svg)](http://microbadger.com/images/mrsaints/gremlin-console-neo4j "Get your own image badge on microbadger.com") | `gremlin-console-neo4j` |
+| [![](https://images.microbadger.com/badges/image/mrsaints/gremlin-server-neo4j.svg)](http://microbadger.com/images/mrsaints/gremlin-server-neo4j "Get your own image badge on microbadger.com") | `gremlin-server-neo4j` |
 
 
 _A work in progress. Use at your own discretion._
